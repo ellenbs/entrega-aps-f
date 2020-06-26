@@ -63,11 +63,7 @@ public class GateView extends FixedPanel implements ActionListener, MouseListene
             add(caixa, inicial + y);
             System.out.println(inicial + y);
             y += incremento - 40;
-
-
         }
-
-
         addMouseListener(this);
 
         update();
