@@ -9,7 +9,7 @@ import java.awt.*;
 // de interface, mas fazemos isso aqui por simplicidade.
 public class FixedPanel extends JPanel {
     // O construtor recebe a largura e a altura do painel.
-    protected FixedPanel(int width, int height) {
+    protected FixedPanel() {
 
         // É muito importante estabelecer que esse painel
         // não tem layout, pois caso contrário seu tamanho
@@ -17,7 +17,7 @@ public class FixedPanel extends JPanel {
         setLayout(null);
 
         // Usamos esse método nos Desafios, vocês lembram?
-        setPreferredSize(new Dimension(width, height));
+        setPreferredSize(new Dimension(245, 200));
     }
 
     // Sobrecarga do método add que permite definir posição
@@ -25,13 +25,13 @@ public class FixedPanel extends JPanel {
     // Fixar posição e tamanho também não é uma boa prática,
     // pois o normal é deixar o layout decidir. Novamente,
     // escolhemos fazer isso aqui para priorizar simplicidade.
-    protected Component add(Component comp, int x, int y, int width, int height) {
+    public Component add(Component comp, int y) {
 
         // Usa a implementação original para adicionar.
         super.add(comp);
 
         // Redefine posição e tamanho da componente.
-        comp.setBounds(x, y, width, height);
+        comp.setBounds(7, y, 20, 25);
 
         return comp;
     }

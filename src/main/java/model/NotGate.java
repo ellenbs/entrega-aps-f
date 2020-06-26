@@ -1,5 +1,6 @@
 package model;
 
+@SuppressWarnings("unused")
 public class NotGate extends Gate {
     private final NandGate nand;
 

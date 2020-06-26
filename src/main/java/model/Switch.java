@@ -1,5 +1,6 @@
 package model;
 
+@SuppressWarnings("ALL")
 public class Switch implements Emitter {
     private boolean signal;
 

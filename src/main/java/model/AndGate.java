@@ -14,11 +14,13 @@ public class AndGate extends Gate {
         nand.connect(1, nand0);
     }
 
+    @SuppressWarnings("unused")
     @Override
     public boolean read() {
         return nand.read();
     }
 
+    @SuppressWarnings("unused")
     @Override
     public void connect(int inputIndex, Emitter emitter) {
         if (inputIndex < 0 || inputIndex > 1) {

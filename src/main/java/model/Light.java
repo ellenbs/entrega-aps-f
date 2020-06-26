@@ -2,6 +2,7 @@ package model;
 
 import java.awt.*;
 
+@SuppressWarnings("ALL")
 public class Light implements Receiver {
     private Color color;
     private Emitter emitter;

@@ -1,5 +1,6 @@
 package model;
 
+@SuppressWarnings("ALL")
 public class XorGate extends Gate {
     private final NandGate nand3;
     private final NandGate nand0;
@@ -22,11 +23,13 @@ public class XorGate extends Gate {
 
     }
 
+    @SuppressWarnings("unused")
     @Override
     public boolean read() {
         return nand0.read();
     }
 
+    @SuppressWarnings("unused")
     @Override
     public void connect(int inputIndex, Emitter emitter) {
         if (inputIndex < 0 || inputIndex > 1) {

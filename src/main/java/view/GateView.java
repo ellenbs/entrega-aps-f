@@ -30,7 +30,7 @@ public class GateView extends FixedPanel implements ActionListener, MouseListene
 
         // Como subclasse de FixedPanel, esta classe agora
         // exige que uma largura e uma altura sejam fixadas.
-        super(245, 200);
+        super();
 
         this.portao = portao;
 
@@ -60,7 +60,7 @@ public class GateView extends FixedPanel implements ActionListener, MouseListene
 
         for (JCheckBox caixa : entradas) {
             caixa.addActionListener(this);
-            add(caixa, 7, inicial + y, 20, 25);
+            add(caixa, inicial + y);
             System.out.println(inicial + y);
             y += incremento - 40;
 

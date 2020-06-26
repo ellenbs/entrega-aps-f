@@ -1,5 +1,6 @@
 package model;
 
+@SuppressWarnings("ALL")
 public class OrGate extends Gate {
     private
     final NandGate nand2;
