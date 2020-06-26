@@ -1,48 +1,42 @@
-package br.pro.hashi.ensino.desagil.aps.model;
-				public class NorGate extends Gate {
-            NandGate nandTop;                  NandGate nandBottom;
-   NandGate nandRight;
-        NandGate nandNot;
+package model;
 
-       NorGate() {
-					  	              super("NOR", 2);
+public class NorGate extends Gate {
+    private final NandGate nandTop;
+    private final NandGate nandBottom;
+    private final NandGate nandNot;
 
-        			        nandTop = new NandGate();
+    public NorGate() {
+        super("NOR", 2);
 
-                nandBottom = new NandGate();
+        nandTop = new NandGate();
 
-                nandRight = new NandGate();                nandRight.connect(0, nandTop);
+        nandBottom = new NandGate();
 
-
-
-
-
-
-
-nandRight.connect(1, nandBottom);
-
-    nandNot = new NandGate(); nandNot.connect(0, nandRight);                nandNot.connect(1, nandRight);
-
-
-
-
-            }
-
-@Override
-				boolean read() {                        return nandNot.read()
+        NandGate nandRight = new NandGate();
+        nandRight.connect(0, nandTop);
+        nandRight.connect(1, nandBottom);
+        nandNot = new NandGate();
+        nandNot.connect(0, nandRight);
+        nandNot.connect(1, nandRight);
     }
 
-   @Override
-			        void connect(int inputIndex, Emitter emitter) {
-            switch (inputIndex) {
-         case 0:
-                nandTop.connect(0, emitter); nandTop.connect(1, emitter);
-                   break;
-             case 1:
-                    nandBottom.connect(0, emitter); nandBottom.connect(1, emitter);
-                  break;
-      default:
-                 throw new IndexOutOfBoundsException(inputIndex);
+    @Override
+    public boolean read() {
+        return nandNot.read();
+    }
+
+    @Override
+    public void connect(int inputIndex, Emitter emitter) {
+        switch (inputIndex) {
+            case 0 -> {
+                nandTop.connect(0, emitter);
+                nandTop.connect(1, emitter);
             }
+            case 1 -> {
+                nandBottom.connect(0, emitter);
+                nandBottom.connect(1, emitter);
+            }
+            default -> throw new IndexOutOfBoundsException(inputIndex);
         }
+    }
 }
